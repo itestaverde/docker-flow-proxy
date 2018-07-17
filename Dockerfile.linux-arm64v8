@@ -34,7 +34,7 @@ ENV CERTS="" \
 
 COPY errorfiles /errorfiles
 COPY haproxy.cfg /cfg/haproxy.cfg
-RUN mkdir -p /cfg/tmpl /templates /certs /logs
+RUN mkdir -p /cfg/tmpl/templates/certs/logs
 COPY haproxy.tmpl /cfg/tmpl/haproxy.tmpl
 
 COPY docker-flow-proxy_linux_arm64v8 /usr/local/bin/docker-flow-proxy
