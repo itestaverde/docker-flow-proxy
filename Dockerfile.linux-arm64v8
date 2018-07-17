@@ -1,5 +1,6 @@
 FROM arm64v8/haproxy
-COPY tmp/qemu-arm-static /usr/bin/qemu-arm-static
+COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
+#COPY tmp/qemu-arm-static /usr/bin/qemu-arm-static
 
 MAINTAINER Ivan Testaverde <ivan.testaverde@gmail.com>
 
@@ -39,7 +40,7 @@ COPY haproxy.cfg /cfg/haproxy.cfg
 RUN mkdir -p /cfg/tmpl /templates /certs /logs
 COPY haproxy.tmpl /cfg/tmpl/haproxy.tmpl
 
-COPY docker-flow-proxy_linux_arm /usr/local/bin/docker-flow-proxy
+COPY docker-flow-proxy_linux_arm64v8 /usr/local/bin/docker-flow-proxy
 RUN chmod +x /usr/local/bin/docker-flow-proxy
 
 HEALTHCHECK --interval=5s --start-period=3s --timeout=5s CMD check.sh
